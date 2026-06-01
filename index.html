@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Travel Package - Ultimate Prototype</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#E6F4F1',
+                            DEFAULT: '#2B7A78', 
+                            dark: '#17252A',
+                            accent: '#DEF2F1'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F7F9FA] text-slate-800 font-sans scroll-smooth">
+
+    <!-- NAVIGATION BAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center text-white text-xl font-bold">S</div>
+                <span class="text-xl font-bold tracking-wider text-brand">SURPRISE <span class="text-slate-500 font-normal text-sm block -mt-1">TRAVEL PACKAGE</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand transition">About Us</a>
+                <a href="#booking" class="hover:text-brand transition text-brand font-semibold">Book A Trip</a>
+                <a href="#rewards" class="hover:text-brand transition">Rewards</a>
+                <a href="#community" class="hover:text-brand transition">Community</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm font-semibold text-slate-600"><i class="fa-solid fa-circle-user text-brand text-lg mr-1 align-middle"></i> Yen Nhi</span>
+                <a href="#booking" class="bg-brand text-white px-5 py-2.5 rounded-full font-medium hover:bg-opacity-90 transition shadow-md">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="max-w-7xl mx-auto px-6 py-12 md:py-20 grid md:grid-cols-2 gap-12 items-center" id="about">
+        <div class="space-y-6">
+            <span class="bg-brand-light text-brand px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase">A trip you don't plan.</span>
+            <h1 class="text-5xl font-extrabold text-slate-900 leading-tight">
+                A surprise trip<br>you'll <span class="text-brand">never forget!</span>
+            </h1>
+            <p class="text-slate-600 leading-relaxed">
+                Surprise Travel Package is a service that creates surprise trips based on your budget and preferences. The destination will remain a secret until just before departure!
+            </p>
+            <div class="pt-2">
+                <a href="#booking" class="bg-brand text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg shadow-brand/20 hover:translate-y-[-2px] transition-all block text-center md:inline-block">
+                    Design Your Surprise Trip <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="flex justify-center relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 bg-brand-light rounded-full flex items-center justify-center animate-pulse relative">
+                <i class="fa-solid fa-gift text-brand text-8xl"></i>
+                <i class="fa-solid fa-plane text-brand text-3xl absolute top-10 right-10 transform rotate-12"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING WIZARD -->
+    <section class="max-w-5xl mx-auto px-6 py-8" id="booking">
+        <div class="bg-white border border-slate-100 rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-3">
+            <!-- Left Sidebar Status -->
+            <div class="bg-brand p-8 text-white flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Your Journey</h3>
+                    <div class="space-y-6 relative border-l-2 border-brand-accent/30 pl-6 ml-2">
+                        <div class="relative" id="step-indicator-1">
+                            <div class="absolute -left-[31px] top-0 w-4 h-4 bg-white rounded-full border-4 border-brand"></div>
+                            <p class="font-medium text-sm text-white">Step 1</p>
+                            <p class="text-xs text-brand-accent">Budget & Preferences</p>
+                        </div>
+                        <div class="relative opacity-60" id="step-indicator-2">
+                            <div class="absolute -left-[31px] top-0 w-4 h-4 bg-brand rounded-full border-4 border-brand-accent"></div>
+                            <p class="font-medium text-sm">Step 2</p>
+                            <p class="text-xs">Basic Information</p>
+                        </div>
+                        <div class="relative opacity-60" id="step-indicator-3">
+                            <div class="absolute -left-[31px] top-0 w-4 h-4 bg-brand rounded-full border-4 border-brand-accent"></div>
+                            <p class="font-medium text-sm">Step 3</p>
+                            <p class="text-xs">Review & Confirm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-brand-dark/20 p-4 rounded-xl mt-8">
+                    <p class="text-xs text-brand-accent">Estimated Points</p>
+                    <p class="text-2xl font-bold text-amber-300">+120 pts</p>
+                </div>
+            </div>
+
+            <!-- Right Dynamic Form Content -->
+            <div class="md:col-span-2 p-8 md:p-12 flex flex-col justify-between min-h-[500px]">
+                <!-- Step 1 Layout -->
+                <div id="form-step-1" class="space-y-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-slate-900">Choose Budget & Preferences</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="block font-semibold text-slate-700 text-sm">Choose your budget for this trip</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="border-2 border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand transition"><input type="radio" name="budget" value="500" class="accent-brand"><span class="text-sm font-medium">Under $500</span></label>
+                            <label class="border-2 border-brand p-3 rounded-xl flex items-center space-x-3 cursor-pointer bg-brand-light/30 transition"><input type="radio" name="budget" value="1000" checked class="accent-brand"><span class="text-sm font-bold text-brand">$500 - $1,000</span></label>
+                            <label class="border-2 border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand transition"><input type="radio" name="budget" value="1500" class="accent-brand"><span class="text-sm font-medium">$1,000 - $1,500</span></label>
+                            <label class="border-2 border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand transition"><input type="radio" name="budget" value="2000" class="accent-brand"><span class="text-sm font-medium">Over $2,000</span></label>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="block font-semibold text-slate-700 text-sm">What are you interested in? <span class="text-xs text-slate-400">(Max 3)</span></label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-umbrella-beach text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Beach</span></button>
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-mountain text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Mountain</span></button>
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-gopuram text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Culture</span></button>
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-champagne-glasses text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Nightlife</span></button>
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-compass text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Adventure</span></button>
+                            <button type="button" onclick="togglePreference(this)" class="border-2 border-slate-200 p-3 rounded-xl flex flex-col items-center justify-center space-y-1 hover:border-brand transition"><i class="fa-solid fa-spa text-slate-500 text-lg"></i><span class="text-xs font-medium text-slate-600">Relaxation</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 Layout -->
+                <div id="form-step-2" class="space-y-6 hidden">
+                    <div>
+                        <h4 class="text-2xl font-bold text-slate-900">Basic Information</h4>
+                        <p class="text-sm text-slate-400 mt-1">Please enter details of all travelers</p>
+                    </div>
+                    <div class="space-y-4 max-h-[260px] overflow-y-auto pr-1">
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+                            <p class="font-bold text-sm text-brand"><i class="fa-solid fa-user mr-1"></i> Passenger 1 (Primary Contact)</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" placeholder="Full Name" class="text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                                <input type="date" class="text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                            </div>
+                            <input type="text" placeholder="Citizen / Resident ID" class="w-full text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+                            <p class="font-bold text-sm text-brand"><i class="fa-solid fa-user mr-1"></i> Passenger 2</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" placeholder="Full Name" class="text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                                <input type="date" class="text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                            </div>
+                            <input type="text" placeholder="Citizen / Resident ID" class="w-full text-sm border border-slate-300 rounded-lg p-2 focus:outline-brand">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 Layout -->
+                <div id="form-step-3" class="space-y-6 hidden">
+                    <div>
+                        <h4 class="text-2xl font-bold text-slate-900">Review & Confirm</h4>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl space-y-3 text-sm border border-slate-100">
+                        <div class="flex justify-between"><span class="text-slate-500">Budget:</span><span class="font-bold">$500 - $1,000</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Travelers:</span><span class="font-bold">2 people</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Preferences:</span><span class="font-bold text-brand" id="summary-prefs">None</span></div>
+                        <hr class="border-dashed">
+                        <div class="flex justify-between text-base"><span class="font-bold">Total Amount:</span><span class="font-bold text-red-500">$1,000.00</span></div>
+                    </div>
+                </div>
+
+                <!-- Footer Wizard Buttons -->
+                <div class="flex justify-between items-center pt-6 border-t border-slate-100 mt-4">
+                    <button id="btn-prev" class="text-slate-500 font-semibold hover:text-slate-800 invisible">Back</button>
+                    <button id="btn-next" class="bg-brand text-white px-6 py-3 rounded-xl font-bold hover:bg-opacity-90 transition">Continue <i class="fa-solid fa-chevron-right ml-1 text-xs"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REWARDS SECTION (Ý tưởng từ Màn hình 9 & 10) -->
+    <section class="max-w-5xl mx-auto px-6 py-12" id="rewards">
+        <div class="bg-white border border-slate-100 rounded-3xl shadow-md p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-100 pb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Your Rewards</h2>
+                    <p class="text-slate-400 text-sm mt-1">Unlock exclusive travel perks and discounts</p>
+                </div>
+                <div class="mt-4 md:mt-0 bg-brand-light border border-brand/20 p-4 rounded-2xl flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-white text-xl shadow-sm"><i class="fa-solid fa-trophy"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Available Balance</p>
+                        <p class="text-2xl font-extrabold text-brand">1,250 <span class="text-xs font-bold uppercase text-slate-400">pts</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Items Đổi quà -->
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="border border-slate-100 rounded-2xl p-4 bg-slate-50/50 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 bg-red-100 text-red-500 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-tag"></i></div>
+                        <h4 class="font-bold text-slate-800">$10 Discount</h4>
+                        <p class="text-xs text-slate-400">Apply to any secret tour booking package.</p>
+                    </div>
+                    <button class="w-full bg-brand/10 text-brand py-2 rounded-xl text-xs font-bold hover:bg-brand hover:text-white transition">500 Pts</button>
+                </div>
+                <div class="border border-slate-100 rounded-2xl p-4 bg-slate-50/50 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-500 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-plane-departure"></i></div>
+                        <h4 class="font-bold text-slate-800">Airport Lounge Access</h4>
+                        <p class="text-xs text-slate-400">Complimentary Business Lounge ticket.</p>
+                    </div>
+                    <button class="w-full bg-brand/10 text-brand py-2 rounded-xl text-xs font-bold hover:bg-brand hover:text-white transition">1,000 Pts</button>
+                </div>
+                <div class="border border-slate-100 rounded-2xl p-4 bg-slate-50/50 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 bg-orange-100 text-orange-500 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-hotel"></i></div>
+                        <h4 class="font-bold text-slate-800">Room Upgrade</h4>
+                        <p class="text-xs text-slate-400">Free upgrade to Deluxe/Suite room status.</p>
+                    </div>
+                    <button class="w-full bg-brand/10 text-brand py-2 rounded-xl text-xs font-bold hover:bg-brand hover:text-white transition">1,500 Pts</button>
+                </div>
+                <div class="border border-slate-100 rounded-2xl p-4 bg-slate-50/50 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-500 rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-ticket"></i></div>
+                        <h4 class="font-bold text-slate-800">Free Trip Voucher</h4>
+                        <p class="text-xs text-slate-400">Get a fully sponsored weekend getaway trip.</p>
+                    </div>
+                    <button class="w-full opacity-50 bg-slate-200 text-slate-400 py-2 rounded-xl text-xs font-bold cursor-not-allowed">3,000 Pts</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY & PROFILE ROW (Ý tưởng từ chân trang thiết kế) -->
+    <section class="max-w-5xl mx-auto px-6 py-4 grid md:grid-cols-3 gap-6" id="community">
+        
+        <!-- CỘT 1 & 2: COMMUNITY FEED -->
+        <div class="md:col-span-2 space-y-4">
+            <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fa-solid fa-users text-brand mr-1"></i> Community Feed</h3>
+            
+            <!-- Hộp tạo bài viết mới (Create Post) -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                <textarea id="post-input" placeholder="Share your secret travel experience here..." class="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-brand h-16 resize-none"></textarea>
+                <div class="flex justify-between items-center">
+                    <button class="text-slate-400 hover:text-brand text-sm flex items-center space-x-1"><i class="fa-solid fa-image"></i> <span>Add photos</span></button>
+                    <button onclick="addNewPost()" class="bg-brand text-white px-4 py-1.5 rounded-xl text-xs font-bold hover:bg-opacity-90 transition">Post</button>
+                </div>
+            </div>
+
+            <!-- Danh sách bài viết bài đăng mẫu -->
+            <div class="space-y-4" id="feed-container">
+    <!-- Post 1 -->
+<div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+    <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 bg-slate-300 rounded-full flex items-center justify-center font-bold text-xs text-white">LN</div>
+        <div>
+            <h5 class="text-sm font-bold text-slate-800">Linh Nguyen</h5>
+            <p class="text-[11px] text-slate-400">Explorer • From Vietnam</p>
+        </div>
+    </div>
+    <p class="text-sm text-slate-600 leading-relaxed">My surprise trip to Da Lat was absolutely magical! 🌲✨ The weather, the people, the food! I'll definitely join again!</p>
+    
+    <!-- Ảnh mới cho Post 1 -->
+    <img src="https://mia.vn/media/uploads/blog-du-lich/rung-thong-2-1695399451.jpg" alt="Da Lat" class="w-full h-48 object-cover rounded-xl">
+    
+    <div class="flex space-x-6 text-xs text-slate-400 pt-1">
+        <button class="hover:text-red-500"><i class="fa-solid fa-heart mr-1"></i> 128</button>
+        <button class="hover:text-brand"><i class="fa-solid fa-comment mr-1"></i> 24</button>
+    </div>
+</div>
+
+<!-- Post 2 -->
+<div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+    <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 bg-slate-300 rounded-full flex items-center justify-center font-bold text-xs text-white">MT</div>
+        <div>
+            <h5 class="text-sm font-bold text-slate-800">Minh Tran</h5>
+            <p class="text-[11px] text-slate-400">Globetrotter • From Vietnam</p>
+        </div>
+    </div>
+    <p class="text-sm text-slate-600 leading-relaxed">Best surprise ever! The beach view was stunning and the resort was perfect for relaxing. Highly recommend.</p>
+    
+    <!-- Ảnh mới cho Post 2 -->
+    <img src="https://cdn.xanhsm.com/2025/01/e6090105-bien-da-nang-thumb.jpg" alt="Da Nang Beach" class="w-full h-48 object-cover rounded-xl">
+    
+    <div class="flex space-x-6 text-xs text-slate-400 pt-1">
+        <button class="hover:text-red-500"><i class="fa-solid fa-heart mr-1"></i> 96</button>
+        <button class="hover:text-brand"><i class="fa-solid fa-comment mr-1"></i> 12</button>
+    </div>
+</div>
+</div>
+
+        <!-- CỘT 3: USER PROFILE MANAGEMENT (Đồng bộ với Màn hình Profile cuối góc phải) -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-slate-900 mb-2"><i class="fa-solid fa-id-card text-brand mr-1"></i> Profile Menu</h3>
+            <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm space-y-6">
+                <!-- Thông tin thẻ User -->
+                <div class="text-center space-y-2">
+                    <div class="w-20 h-20 bg-brand-light text-brand rounded-full mx-auto flex items-center justify-center text-3xl font-bold border-2 border-brand"><i class="fa-solid fa-smile animate-bounce"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Hello, Yen Nhi!</h4>
+                        <p class="text-xs text-amber-500 font-bold"><i class="fa-solid fa-medal mr-0.5"></i> Explorer Level</p>
+                    </div>
+                    <!-- Thanh tiến trình cấp độ điểm thưởng -->
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-1">
+                        <div class="bg-brand h-full w-[65%]"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 text-right">250 pts to next level</p>
+                </div>
+
+                <!-- Menu danh sách tính năng ứng dụng -->
+                <div class="divide-y divide-slate-100 text-sm font-medium text-slate-600">
+                    <a href="#" class="flex justify-between items-center py-3 hover:text-brand transition"><span><i class="fa-solid fa-map-location-dot mr-2 text-slate-400"></i> My Trips</span> <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i></a>
+                    <a href="#" class="flex justify-between items-center py-3 hover:text-brand transition"><span><i class="fa-solid fa-star-half-stroke mr-2 text-slate-400"></i> My Reviews</span> <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i></a>
+                    <a href="#" class="flex justify-between items-center py-3 hover:text-brand transition"><span><i class="fa-solid fa-gift mr-2 text-slate-400"></i> My Rewards</span> <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i></a>
+                    <a href="#" class="flex justify-between items-center py-3 hover:text-brand transition"><span><i class="fa-solid fa-gear mr-2 text-slate-400"></i> Settings</span> <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-400 text-xs text-center py-8 mt-12 border-t border-slate-800">
+        <p>© 2026 Surprise Travel Package. Designed from app wireframes mapping.</p>
+    </footer>
+
+    <!-- LOGIC SCRIPTS -->
+    <script>
+        let selectedPrefs = [];
+
+        function togglePreference(element) {
+            const prefText = element.querySelector('span').innerText;
+            const icon = element.querySelector('i');
+            const span = element.querySelector('span');
+
+            if (selectedPrefs.includes(prefText)) {
+                selectedPrefs = selectedPrefs.filter(p => p !== prefText);
+                element.classList.remove('border-brand', 'bg-brand-light/20');
+                element.classList.add('border-slate-200');
+                icon.classList.replace('text-brand', 'text-slate-500');
+                span.classList.replaceAll(['font-bold', 'text-brand'], ['font-medium', 'text-slate-600']);
+            } else {
+                if (selectedPrefs.length >= 3) { alert("You can select up to 3 preferences only."); return; }
+                selectedPrefs.push(prefText);
+                element.classList.remove('border-slate-200');
+                element.classList.add('border-brand', 'bg-brand-light/20');
+                icon.classList.replace('text-slate-500', 'text-brand');
+                span.classList.replaceAll(['font-medium', 'text-slate-600'], ['font-bold', 'text-brand']);
+            }
+            document.getElementById('summary-prefs').innerText = selectedPrefs.length > 0 ? selectedPrefs.join(', ') : 'None';
+        }
+
+        // Form Stepper Navigation Logic
+        let currentStep = 1;
+        const btnNext = document.getElementById('btn-next');
+        const btnPrev = document.getElementById('btn-prev');
+
+        btnNext.addEventListener('click', () => {
+            if(currentStep < 3) {
+                document.getElementById(`form-step-${currentStep}`).classList.add('hidden');
+                document.getElementById(`step-indicator-${currentStep}`).classList.add('opacity-60');
+                currentStep++;
+                document.getElementById(`form-step-${currentStep}`).classList.remove('hidden');
+                document.getElementById(`step-indicator-${currentStep}`).classList.remove('opacity-60');
+                btnPrev.classList.remove('invisible');
+                if(currentStep === 3) {
+                    btnNext.innerHTML = 'Confirm & Earn Points <i class="fa-solid fa-star ml-1 text-xs"></i>';
+                    btnNext.classList.replaceAll(['bg-brand'], ['bg-amber-500']);
+                }
+            } else {
+                alert('🎉 Booking Successful! We are designing your perfect surprise trip.');
+            }
+        });
+
+        btnPrev.addEventListener('click', () => {
+            if(currentStep > 1) {
+                document.getElementById(`form-step-${currentStep}`).classList.add('hidden');
+                document.getElementById(`step-indicator-${currentStep}`).classList.add('opacity-60');
+                currentStep--;
+                document.getElementById(`form-step-${currentStep}`).classList.remove('hidden');
+                document.getElementById(`step-indicator-${currentStep}`).classList.remove('opacity-60');
+                btnNext.innerHTML = 'Continue <i class="fa-solid fa-chevron-right ml-1 text-xs"></i>';
+                btnNext.classList.replaceAll(['bg-amber-500'], ['bg-brand']);
+                if(currentStep === 1) btnPrev.classList.add('invisible');
+            }
+        });
+
+        // Add New Custom Post Interactive
+        function addNewPost() {
+            const inputTxt = document.getElementById('post-input').value;
+            if(!inputTxt.trim()) { alert('Please enter text content first!'); return; }
+            
+            const newPostHtml = `
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3 animate-fadeIn">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-brand text-white rounded-full flex items-center justify-center font-bold text-xs">YN</div>
+                        <div>
+                            <h5 class="text-sm font-bold text-slate-800">Yen Nhi</h5>
+                            <p class="text-[11px] text-slate-400">Explorer • Just now</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed">${inputTxt}</p>
+                    <div class="flex space-x-6 text-xs text-slate-400 pt-1">
+                        <button class="hover:text-red-500"><i class="fa-solid fa-heart mr-1"></i> 0</button>
+                        <button class="hover:text-brand"><i class="fa-solid fa-comment mr-1"></i> 0</button>
+                    </div>
+                </div>`;
+            document.getElementById('feed-container').insertAdjacentHTML('afterbegin', newPostHtml);
+            document.getElementById('post-input').value = '';
+        }
+    </script>
+</body>
+</html>
